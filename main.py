@@ -25,4 +25,4 @@ if len(sys.argv) <= 1:
 else:
     File = open(sys.argv[1], 'r');
     getInfo(File, config)
-    getEndPoint(File, config)
+    endPoints = getEndPoint(File, config)

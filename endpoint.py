@@ -1,5 +1,4 @@
 def getEndPoint(File, config):
-    print(config['E'])
     tab = []
     line = []
     for i in File:
@@ -16,6 +15,7 @@ def getEndPoint(File, config):
             tab[j].pingToCache.append(int(tmp2[1]))
             i += 1
         j += 1
+    return tab
 
 class EndPoint:
     def __init__(self, id):
