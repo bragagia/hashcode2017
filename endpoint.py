@@ -1,8 +1,4 @@
-def getEndPoint(File, config):
-    tab = []
-    line = []
-    for i in File:
-        line.append(i)
+def getEndPoint(line, config):
     i = 2
     for j in range(0, config['E']):
         tab.append(EndPoint(j))

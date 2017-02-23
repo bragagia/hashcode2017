@@ -25,9 +25,7 @@ class VideoClass(object):
         self.request.append(req)
 
 def req_by_endpoint(video, Line):
-    print(video.id)
     for i in range(len(Line) - config["R"], len(Line)):
-        print(i)
         tmp = Line[i]
         tmp.split(" ")
         if int(tmp[0]) == int(video.id):
@@ -45,31 +43,27 @@ def get_videos(Line, config):
         video = VideoClass(id, int(size))
         req_by_endpoint(video, Line)
         videos.append(video)
-        print(video.endpoint, ":", video.request)
         id += 1
         if id > config["V"]:
-            print("fini")
             break
 
-def getInfo(File, config):
-    for i in File:
-        print(config['V'])
-        tmp = i
-        tab = tmp.split(" ");
-        config['V'] = int(tab[0])
-        config['E'] = int(tab[1])
-        config['R'] = int(tab[2])
-        config['C'] = int(tab[3])
-        config['X'] = int(tab[4])
-        break
+def getInfo(Line, config):
+    i = Line[0]
+    tmp = i
+    tab = tmp.split(" ");
+    config['V'] = int(tab[0])
+    config['E'] = int(tab[1])
+    config['R'] = int(tab[2])
+    config['C'] = int(tab[3])
+    config['X'] = int(tab[4])
 
 if len(sys.argv) <= 1:
     exit(42)
 else:
     File = open(sys.argv[1], 'r');
-    getInfo(File, config)
     Line = []
     for i in File:
         Line.append(i)
+    getInfo(Line, config)
     get_videos(Line, config)
-    endPoints = getEndPoint(File, config)
+    endPoints = getEndPoint(Line, config)
