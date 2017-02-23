@@ -7,7 +7,7 @@ int X = -1;
 int E = -1;
 int C = -1;
 
-int get_nb(char *str) {
+int parse_first_line(char *str) {
   int i = 0;
 
   V = atoi(&str[i]);
@@ -31,6 +31,7 @@ int get_nb(char *str) {
   i++;
 
   X = atoi(&str[i]);
+  return (0);
 }
 
 int   main(int argc, char **argv)
